@@ -23,6 +23,7 @@ class CharacterBuilder
       points_left -= distributed_points
     end
     @charisma = points_left
+    self
   end
 
   # rubocop:disable Metrics/MethodLength
