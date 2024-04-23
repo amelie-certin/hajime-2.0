@@ -4,6 +4,7 @@ AllCops:
     - 'config/**/*'
     - 'bin/bundle'
     - 'db/**/*'
+    - 'spec/*.rb'
 
 Style/Documentation:
   Enabled: false
