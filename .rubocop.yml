@@ -3,6 +3,7 @@ AllCops:
   Exclude:
     - 'config/**/*'
     - 'bin/bundle'
+    - 'db/**/*'
 
 Style/Documentation:
   Enabled: false
