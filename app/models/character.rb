@@ -26,7 +26,19 @@ class Character < ApplicationRecord
   end
 
   def ko?
-    health.zero?
+    health <= 0
+  end
+
+  def weapon_power
+    weapons.sum(&:power)
+  end
+
+  def punch_power
+    weapon_power + strength
+  end
+
+  def weapon_focus
+    weapons.sum(&:focus)
   end
 
   private

@@ -3,22 +3,22 @@
 class CharacterBuilder
   attr_writer :name, :health, :focus, :strength, :defense, :speed, :charisma, :legs, :arms
 
-  def initialize
-    @name = ''
+  def initialize(name: '', legs: 0, arms: 0)
+    @name = name
     @health = 0
     @focus = 0
     @strength = 0
     @defense = 0
     @speed = 0
     @charisma = 0
-    @arms = 0
-    @legs = 0
+    @arms = arms
+    @legs = legs
   end
 
   def randomize(points_to_distribute: 200)
     points_left = points_to_distribute
     %w[health focus strength defense speed].each do |stat|
-      distributed_points = rand(0..points_left)
+      distributed_points = rand(0..[points_left, 75].min)
       send "#{stat}=", distributed_points
       points_left -= distributed_points
     end
