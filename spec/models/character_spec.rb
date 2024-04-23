@@ -27,6 +27,21 @@ RSpec.describe Character, type: :model do
 
       it { is_expected.to_not be_valid }
     end
+
+    context 'when character is unbalanced' do
+      let(:character) { build(:character, strength: 4, defense: 22, health: 74, focus: 1, speed: 1, charisma: 0) }
+
+      it { is_expected.to_not be_valid }
+    end
+
+    context 'when character is holding too many weapons' do
+      let(:weapon1) { create(:weapon, arms: 1) }
+      let(:weapon2) { create(:weapon, arms: 1) }
+      let(:weapon3) { create(:weapon, arms: 1) }
+      let(:character) { build(:character, weapons: [weapon1, weapon2, weapon3], arms: 2) }
+
+      it { is_expected.to_not be_valid }
+    end
   end
 
   describe 'balance' do

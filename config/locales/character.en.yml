@@ -1,0 +1,8 @@
+en:
+  activerecord:
+    errors:
+      models:
+        character:
+          attributes:
+            base:
+              unbalanced: Your skills put you in a class of your own, access to the arena is not permitted.

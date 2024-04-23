@@ -1,0 +1,9 @@
+fr:
+  activerecord:
+    errors:
+      models:
+        fight:
+          attributes:
+            opponent:
+              identical: Les combats contre soi-même sont strictement interdits dans cette arène !
+              required: Pas de combat, pas de victoire. Choisis ton adversaire, pour de vrai cette fois.

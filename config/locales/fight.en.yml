@@ -1,0 +1,9 @@
+en:
+  activerecord:
+    errors:
+      models:
+        fight:
+          attributes:
+            opponent:
+              identical: Self-fighting is strictly forbidden in this arena!
+              required: No fight, no win. Choose your opponent, for real this time.

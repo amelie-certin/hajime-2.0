@@ -1,0 +1,8 @@
+fr:
+  activerecord:
+    errors:
+      models:
+        character:
+          attributes:
+            base:
+              unbalanced: Vos compétences vous placent hors catégorie, l'accès à l'arène ne vous est pas permis.

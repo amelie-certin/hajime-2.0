@@ -10,6 +10,8 @@ class Character < ApplicationRecord
   validates :health, :defense, :strength, :focus, :speed, :charisma,
             numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 200 }
   validates :arms, :legs, numericality: { greater_than_or_equal_to: 0 }
+  validate :check_balance
+  validate :check_enough_limbs
 
   def balanced?
     balance <= 200 && balance >= 175
@@ -25,5 +27,22 @@ class Character < ApplicationRecord
 
   def ko?
     health.zero?
+  end
+
+  private
+
+  def check_balance
+    return if balanced?
+
+    errors.add(:balance, :unbalanced)
+  end
+
+  def check_enough_limbs
+    armed_arms = weapons.sum(&:arms)
+    armed_legs = weapons.sum(&:legs)
+
+    return if arms >= armed_arms || legs >= armed_legs
+
+    errors.add(:limbs, :not_enough_free_limbs)
   end
 end
