@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class Character < ApplicationRecord
-  # Relations
+  # Associations
+  has_many :characters_weapons, dependent: :destroy
+  has_many :weapons, through: :characters_weapons
 
   # Validations
   validates :name, presence: true

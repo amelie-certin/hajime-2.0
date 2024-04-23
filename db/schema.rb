@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_23_094524) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_23_130215) do
   create_table "characters", force: :cascade do |t|
     t.string "name"
     t.integer "arms", default: 0
@@ -21,6 +21,25 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_23_094524) do
     t.integer "focus", default: 0
     t.integer "speed", default: 0
     t.integer "charisma", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "characters_weapons", force: :cascade do |t|
+    t.integer "weapon_id"
+    t.integer "character_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["character_id"], name: "index_characters_weapons_on_character_id"
+    t.index ["weapon_id"], name: "index_characters_weapons_on_weapon_id"
+  end
+
+  create_table "weapons", force: :cascade do |t|
+    t.string "name"
+    t.integer "arms", default: 0
+    t.integer "legs", default: 0
+    t.integer "focus", default: 0
+    t.integer "power", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
