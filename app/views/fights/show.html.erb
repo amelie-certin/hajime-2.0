@@ -1,0 +1,28 @@
+<div class="container">
+  <h1 class="mb-4"><%= t('.title') %></h1>
+  <div class="d-flex align-items-center justify-content-around">
+    <div class="">
+      <div class="card" style="width: 12rem;">
+        <%= image_tag @fight.player.avatar.variant(:thumb), class: "card-img-top" %>
+        <div class="card-body">
+          <h5 class="card-title"><%= @fight.player.name %></h5>
+          <p class="card-text"><%= @fight.winner == "player" ? "Winner" : "Loser" %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="">
+      <p class="fs-1"><%= t('.vs') %></p>
+    </div>
+
+    <div class="">
+      <div class="card" style="width: 12rem;">
+        <%= image_tag @fight.opponent.avatar.variant(:thumb), class: "card-img-top" %>
+        <div class="card-body">
+          <h5 class="card-title"><%= @fight.opponent.name %></h5>
+          <p class="card-text"><%= @fight.winner == "opponent" ? "Winner" : "Loser" %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

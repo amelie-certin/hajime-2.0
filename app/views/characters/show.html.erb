@@ -1,0 +1,51 @@
+<div class="container mt-4">
+  <h1 class="mb-4"><%= t('.title') %></h1>
+  <div class="d-flex justify-content-end mb-4">
+    <%= link_to t('.link.arena'), new_fight_path, class: "btn btn-dark me-4" %>
+    <%= link_to t('.link.characters'), characters_path, class: "btn btn-dark me-4" %>
+  </div>
+
+  <div class="d-flex align-items-center justify-content-around mb-4">
+    <div class="">
+      <div class="card" style="width: 12rem;">
+        <%= image_tag @character.avatar.variant(:thumb), class: "card-img-top" %>
+        <div class="card-body">
+          <h5 class="card-title"><%= @character.name %></h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        Health => <%= @character.health %>
+      </li>
+      <li class="list-group-item">
+        Strength => <%= @character.strength %>
+      </li>
+      <li class="list-group-item">
+        Focus => <%= @character.focus %>
+      </li>
+      <li class="list-group-item">
+        Defense => <%= @character.defense %>
+      </li>
+    </ul>
+
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        Speed => <%= @character.speed %>
+      </li>
+      <li class="list-group-item">
+        Charisma => <%= @character.charisma %>
+      </li>
+      <li class="list-group-item">
+        Arms => <%= @character.arms %>
+      </li>
+      <li class="list-group-item">
+        Legs => <%= @character.legs %>
+      </li>
+    </ul>
+  </div>
+
+</div>

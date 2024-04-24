@@ -1,0 +1,18 @@
+en:
+  characters:
+    show:
+      title: Medical record
+      link:
+        characters: All competitors
+        arena: Back to the Arena
+    new:
+      title: Registration form
+      submit: Registration
+      link:
+        arena: Back to the Arena
+        new_character: New registration
+    index:
+      title: Competitors
+      link:
+        new_character: New registration
+        arena: Back to the Arena

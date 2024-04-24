@@ -13,6 +13,10 @@ class Character < ApplicationRecord
   validate :check_balance
   validate :check_enough_limbs
 
+  has_one_attached :avatar do |attachable|
+    attachable.variant :thumb, resize_to_fill: [400, 400]
+  end
+
   def balanced?
     balance <= 200 && balance >= 175
   end

@@ -1,0 +1,18 @@
+fr:
+  characters:
+    show:
+      title: Fiche médicale
+      link:
+        characters: Voir tous les compétiteurs
+        arena: Retour à l'Arène
+    new:
+      title: Formulaire d'inscription
+      submit: Inscription
+      link:
+        arena: Retour à l'Arène
+        new_character: Nouvelle inscription
+    index:
+      title: Compétiteurs
+      link:
+        new_character: Nouvelle inscription
+        arena: Retour à l'Arène

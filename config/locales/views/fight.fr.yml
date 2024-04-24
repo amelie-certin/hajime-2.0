@@ -1,0 +1,11 @@
+fr:
+  fights:
+    new:
+      title: Bienvenue dans l'Arène !
+      subtitle: Un petit aperçu de nos combattants
+      submit: Hajime !
+      link:
+        new_character: Inscription
+    show:
+      title: Résultats du combat
+      vs: VS

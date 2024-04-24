@@ -1,0 +1,63 @@
+<div class="container mt-4">
+  <h1 class="mb-4"><%= t('.title') %></h1>
+  <div class="d-flex justify-content-end mb-4">
+    <%= link_to t('.link.arena'), new_fight_path, class: "btn btn-dark me-4" %>
+  </div>
+
+  <% if @character.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <% @character.errors.full_messages.each do |message| %>
+        <%= message %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= form_for(@character) do |f| %>
+    <div class="mb-3">
+      <%= f.label :name, class: "form-label" %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :avatar, class: "form-label" %>
+      <%= f.file_field :avatar, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.label :health, class: "form-label" %>
+      <%= f.range_field :health, in: 0..75, class: "form-range" %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :strength, class: "form-label" %>
+      <%= f.range_field :strength, in: 0..75, class: "form-range" %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :defense, class: "form-label" %>
+      <%= f.range_field :defense, in: 0..75, class: "form-range" %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :focus, class: "form-label" %>
+      <%= f.range_field :focus, in: 0..75, class: "form-range" %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :speed, class: "form-label" %>
+      <%= f.range_field :speed, in: 0..75, class: "form-range" %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :charisma, class: "form-label" %>
+      <%= f.range_field :charisma, in: (0..[@character.charisma, 75].max), class: "form-range" %>
+    </div>
+
+    <div class="d-flex mb-3">
+      <div class="me-3 flex-fill">
+        <%= f.label :arms, class: "form-label" %>
+        <%= f.number_field :arms, in: 0..100, step: 1, class: "form-control" %>
+      </div>
+      <div class="flex-fill">
+        <%= f.label :legs, class: "form-label" %>
+        <%= f.number_field :legs, in: 0..100, step: 1, class: "form-control" %>
+      </div>
+    </div>
+
+    <%= f.submit t('.submit'), class: 'btn btn-primary mt-3' %>
+  <% end %>
+</div>

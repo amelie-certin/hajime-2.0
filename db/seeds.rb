@@ -9,14 +9,16 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+image_path = 'app/assets/images'
 
-characters = [
-  { name: 'Grumpy cat', legs: 4, arms: 0 },
-  { name: 'Arthur', legs: 2, arms: 2 },
-  { name: 'Doggo', legs: 4, arms: 0 },
-  { name: 'Nyan cat', legs: 2, arms: 2 },
-  { name: 'Lamasticot', legs: 0, arms: 0 }
-].map do |attributes|
+characters_attributes = [
+  { name: 'Grumpy cat', legs: 4, arms: 0, avatar_path: "#{image_path}/Grumpy cat.png" },
+  { name: 'Arthur', legs: 2, arms: 2, avatar_path: "#{image_path}/Arthur.png" },
+  { name: 'Doggo', legs: 4, arms: 0, avatar_path: "#{image_path}/Doggo.jpg" },
+  { name: 'Nyan cat', legs: 2, arms: 2, avatar_path: "#{image_path}/Nyan cat.jpeg" },
+  { name: 'Lamasticot', legs: 0, arms: 0, avatar_path: "#{image_path}/Lamasticot.jpg" }
+]
+characters = characters_attributes.map do |attributes|
   CharacterBuilder
     .new(name: attributes[:name], legs: attributes[:legs], arms: attributes[:arms])
     .randomize
@@ -33,5 +35,6 @@ weapons = Weapon.create [
 
 characters.each_with_index do |character, i|
   character.save
+  character.avatar.attach(File.open(characters_attributes[i][:avatar_path]))
   character.weapons << weapons[i]
 end

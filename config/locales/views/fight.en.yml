@@ -1,0 +1,11 @@
+en:
+  fights:
+    new:
+      title: Welcome to the Arena!
+      subtitle: A glimpse of our fighters
+      submit: Hajime!
+      link:
+        new_character: Registration
+    show:
+      title: Results
+      vs: VS

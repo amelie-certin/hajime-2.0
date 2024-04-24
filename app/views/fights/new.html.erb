@@ -1,0 +1,44 @@
+<div class="container mt-4">
+  <h1 class="mb-4"><%= t('.title') %></h1>
+  <div class="d-flex justify-content-end mb-4">
+    <%= link_to t('.link.new_character'), new_character_path, class: "btn btn-dark me-4" %>
+  </div>
+
+
+  <% if @fight.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <% @fight.errors.full_messages.each do |message| %>
+        <%= message %>
+      <% end %>
+    </div>
+  <% end %>
+
+
+  <div class="mb-5">
+    <%= form_for(@fight) do |f| %>
+      <div class="d-flex">
+        <%= f.select :player_id, @list, {}, { class: "form-select mb-8 me-4" } %>
+        <%= f.submit t('.submit'), class: "btn btn-dark mb-8 me-4" %>
+        <%= f.select :opponent_id, @list, {}, { class: "form-select" } %>
+      </div>
+    <% end %>
+  </div>
+
+  <hr>
+
+  <h3 class="mb-4"><%= t('.subtitle') %></h1>
+  <div class="d-flex flex-wrap">
+    <% @characters.each do |character| %>
+      <%= link_to character_path(character), class: "text-decoration-none" do %>
+        <div class="me-4 ms-4 mb-2">
+          <div class="card" style="width: 12rem;">
+            <%= image_tag character.avatar.variant(:thumb), class: "card-img-top" %>
+            <div class="card-body">
+              <h5 class="card-title"><%= character.name %></h5>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
